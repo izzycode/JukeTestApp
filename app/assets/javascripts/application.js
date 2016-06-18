@@ -23,12 +23,3 @@
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
-
-
-$(document).on('ready', function(){
-
-  $('.search-form').on('ajax:success', function(){
-    alert('EUREKA');
-  })
-
-})

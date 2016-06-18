@@ -24,6 +24,9 @@ gem 'redis', '~> 3.0'
 gem 'hirb'
 gem 'nokogiri'
 
+gem 'httparty'
+gem 'json'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
