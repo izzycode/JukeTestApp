@@ -1,11 +1,11 @@
 <ul>
 
   <% parsed_search[:results].each do |result| %>
-  <li>
-    <h6><%= result[:trackName] %></h6>
+    <li>
+      <h6><%= result[:trackCensoredName] %></h6>
 
-    <img src='<%= result[:artworkUrl100] %>' >
-  </li>
+      <img src='<%= result[:artworkUrl100] %>' >
+    </li>
 
   <% end %>
 
