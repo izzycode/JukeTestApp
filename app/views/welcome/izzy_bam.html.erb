@@ -77,35 +77,30 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><%=image_tag("background2.jpg", alt:"background image")%></div>
-  </div>
 
-  <div class="container">
-    <div class="section">
+  <div class="parallax"><%=image_tag("background2.jpg", alt:"background image")%></div>
+</div>
 
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
+<div class="container">
+  <div class="section">
 
-          <%= form_tag '/search' , remote:true, class:"search-form" do %>
-            <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...' %>
-            <div><%= submit_tag 'Search', class:"btn waves-effect waves-light" %></div>
-          <% end %>
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
 
-          <h4>Your Search</h4>  <!-- this gets jqueried in here after search -->
-          <p class="left-align light">Text</p>
-          <div class="infinite-scroll">
-            results from itunes search will go here in a wrap around scroll ?
-          </div ><!-- this gets jqueried in here after search -->
-        <div class="infinite-scroll"><!-- this gets jqueried in here after search -->
+        <%= form_tag '/search' , remote:true, class:"search-form" do %>
+          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...' %>
+          <div>
+            <%= submit_tag 'Search', class:"btn waves-effect waves-light" %>
+          </div>
+        <% end %>
 
-        </div ><!-- this gets jqueried in here after search -->
-
-        </div>
+        <div class="infinite-scroll" style="dispaly:inline-flex;"><!-- this gets jqueried in here after search -->
+        </div><!-- this gets jqueried in here after search -->
       </div>
-
     </div>
   </div>
+</div>
 
 
   <div class="parallax-container valign-wrapper">
@@ -157,5 +152,3 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
-</div>

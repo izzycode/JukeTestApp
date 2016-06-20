@@ -1,0 +1,12 @@
+<ul>
+
+  <% parsed_search[:results].each do |result| %>
+  <li>
+    <h6><%= result[:trackName] %></h6>
+
+    <img src='<%= result[:artworkUrl100] %>' >
+  </li>
+
+  <% end %>
+
+</ul>

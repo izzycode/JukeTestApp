@@ -23,7 +23,6 @@ gem 'redis', '~> 3.0'
 # My developing gems
 gem 'hirb'
 gem 'nokogiri'
-
 gem 'httparty'
 gem 'json'
 
