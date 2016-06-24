@@ -89,7 +89,8 @@
         <h3><i class="mdi-content-send brown-text"></i></h3>
 
         <%= form_tag '/search' , remote:true, class:"search-form" do %>
-          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...' %>
+          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...', class:"search-field" %>
+
           <div>
             <%= submit_tag 'Search', class:"btn waves-effect waves-light" %>
           </div>
