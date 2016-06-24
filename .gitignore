@@ -15,3 +15,12 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore testing xml file
+newly.xml
+
+# Ignore ENV variables
+.env
+
+# Ignore seed files
+db/seeds.rb

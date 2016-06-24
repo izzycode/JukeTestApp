@@ -43,6 +43,10 @@ GEM
     byebug (9.0.5)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.10)
@@ -113,6 +117,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redis (3.3.0)
     spring (1.7.1)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -146,13 +151,16 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  dotenv-rails
   hirb
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
+  nokogiri
   pg (~> 0.18)
   puma (~> 3.0)
   rails (>= 5.0.0.rc1, < 5.1)
+  redis (~> 3.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5.x)
@@ -161,4 +169,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.4
+   1.12.5
