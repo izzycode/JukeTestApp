@@ -3,6 +3,7 @@ class CreateSongs < ActiveRecord::Migration[5.0]
     create_table :songs do |t|
       t.string :name
       t.string :artist
+      t.string :genre
       t.string :bit_rate
       t.string :sample_rate
       t.string :normalization

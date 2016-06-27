@@ -18,18 +18,14 @@ ActiveRecord::Schema.define(version: 20160625035912) do
 
   create_table "playlists", force: :cascade do |t|
     t.string   "name"
-    t.string   "genre"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "xml_file_file_name"
-    t.string   "xml_file_content_type"
-    t.integer  "xml_file_file_size"
-    t.datetime "xml_file_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "songs", force: :cascade do |t|
     t.string   "name"
     t.string   "artist"
+    t.string   "genre"
     t.string   "bit_rate"
     t.string   "sample_rate"
     t.string   "normalization"

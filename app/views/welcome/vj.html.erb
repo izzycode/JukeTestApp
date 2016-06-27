@@ -1,1 +1,32 @@
 <h1>This is the partial for admin</h1>
+
+<%= form_for @playlist do |f| %>
+  <%= f.file_field :xml_file, multiple: true%>
+  <%= f.submit %>
+<% end %>
+
+<ol>
+  <% @playlists.each do |playlist| %>
+      <li>
+        <%= playlist.name %>
+      </li>
+  <% end %>
+</ol>
+
+<ol>
+  <% @songs.each do |song| %>
+      <li>
+        <%= song.name %><br />
+
+        <%= song.artist %><br />
+
+        <%= song.genre %><br />
+
+        <%= song.bit_rate %><br />
+
+        <%= song.sample_rate %><br />
+
+        <%= song.normalization %><br />
+      </li><br />
+  <% end %>
+</ol>
