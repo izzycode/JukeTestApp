@@ -22,13 +22,26 @@ class WelcomeController < ApplicationController
   def songs_from_xml(file)
     doc = File.open(file) { |f| Nokogiri::XML(f) }
 
-    name = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[1]').text
-    artist = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[2]').text
-    genre = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[4]').text
-    bit_rate = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[8]').text
-    sample_rate = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[9]').text
-    normalization = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[13]').text
-    Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
+    songs = doc.xpath('//dict/dict/dict').count
+    counter = 1
+    while counter <= songs
+      name = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[1]").text
+      artist = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[2]").text
+      genre = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[4]").text
+      bit_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[8]").text
+      sample_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[9]").text
+      normalization = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[13]").text
+      Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
+      counter +=1
+    end
+
+    # name = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[1]').text
+    # artist = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[2]').text
+    # genre = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[4]').text
+    # bit_rate = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[8]').text
+    # sample_rate = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[9]').text
+    # normalization = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[13]').text
+    # Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
   end
 
 
