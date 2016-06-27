@@ -24,3 +24,6 @@ newly.xml
 
 # Ignore seed files
 db/seeds.rb
+
+itunes_xml_export.scpt
+osascript.rb

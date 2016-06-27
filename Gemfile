@@ -23,7 +23,7 @@ gem 'redis', '~> 3.0'
 # My developing gems
 gem 'hirb'
 gem 'nokogiri'
-
+gem 'paperclip'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
