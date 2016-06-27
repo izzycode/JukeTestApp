@@ -2,8 +2,20 @@ class ActionsController < ApplicationController
 
   def search
     search_term = params[:search].strip().gsub(" ","+")
+    url = "https://itunes.apple.com/search?term=#{search_term}&entity=musicVideo"
+
     p search_term
-    itunes_search = HTTParty.get "https://itunes.apple.com/search?term=#{search_term}&entity=musicVideo"
+    if !params[:search][:artist].nil?
+      url += "&attribute=artistTerm"
+    end
+    if !params[:search][:song].nil?
+      url +=  "&attribute=songTerm"
+    end
+    if !params[:search][:song].nil?
+      url +=  "&attribute=genreIndex"
+    end
+
+    itunes_search = HTTParty.get url
     @parsed_search = JSON.parse(itunes_search.body).with_indifferent_access
 
     respond_to do |format|

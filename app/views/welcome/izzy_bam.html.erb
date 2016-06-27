@@ -88,7 +88,22 @@
       <div class="col s12 center">
         <h3><i class="mdi-content-send brown-text"></i></h3>
 
+
         <%= form_tag '/search' , remote:true, class:"search-form" do %>
+
+          <p>
+            <input type="checkbox" id="test5" value=true name="specifier" />
+            <label for="test5">Artist</label>
+          </p>
+          <p>
+            <input type="checkbox" id="test6" value=true name="song"/>
+            <label for="test6">Song</label>
+          </p>
+          <p>
+            <input type="checkbox" id="test7" value=true name="genre"/>
+            <label for="test7">Genre</label>
+          </p>
+
           <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...', class:"search-field" %>
 
           <div>
@@ -150,6 +165,3 @@
       </div>
     </div>
   </footer>
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
