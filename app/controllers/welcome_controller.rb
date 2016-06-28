@@ -8,8 +8,8 @@ class WelcomeController < ApplicationController
 
 
   def create_playlist
-    params[:playlist][:xml_file].drop(1).each do |file|
-      playlist = Playlist.create(name: file.original_filename)
+    params[:playlist][:xml_file].drop(1).each do |file| #not sure why first elem of array result is empty (hence the drop 1)
+      playlist = Playlist.create(name: file.original_filename.split(".").first)
       songs_from_xml(file.tempfile, playlist)
     end
     redirect_to vj_path

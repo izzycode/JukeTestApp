@@ -40,7 +40,7 @@
         <% @playlists.each do |playlist| %>
           <div class="col s12 m4">
             <div class="icon-block">
-              <h2 class="center brown-text"><i class="material-icons"><%= @icons.sample %></i></h2>
+              <h1 class="center brown-text"><i class="material-icons"><%= @icons.sample %></i></h1>
               <h5 class="center"><%= playlist.name %></h5>
 
               <p class="light">
@@ -84,7 +84,7 @@
         <%= form_tag '/search' , remote:true, class:"search-form" do %>
 
           <p>
-            <%= radio_button_tag(:specifier, "artist") %>
+            <%= radio_button_tag(:specifier, "artist","artist") %>
             <%= label_tag(:specifier_artist, "Artist") %>
             <%= radio_button_tag(:specifier, "song") %>
             <%= label_tag(:specifier_song, "Song") %>

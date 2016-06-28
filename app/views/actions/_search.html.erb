@@ -1,6 +1,6 @@
 <ul>
 
-  <% @parsed_search[:results].each do |result| %>
+  <% @search_from_itunes[:results].each do |result| %>
     <li>
       <h6><%= result[:trackCensoredName] %></h6>
 
@@ -10,3 +10,4 @@
   <% end %>
 
 </ul>
+<h1 style="color:red;"><%= @is_artist %></h1>
