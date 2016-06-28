@@ -1,12 +1,16 @@
 class WelcomeController < ApplicationController
   def izzy_bam
+    p "ROOT!  "*19
+
+    @playlists = Playlist.all
+    @icons = ["flash_on","face","favorite","album","play_circle_outline","speaker","headset","whatshot","star"]
   end
 
 
   def create_playlist
     params[:playlist][:xml_file].drop(1).each do |file|
-      Playlist.create(name: file.original_filename)
-      songs_from_xml(file.tempfile)
+      playlist = Playlist.create(name: file.original_filename)
+      songs_from_xml(file.tempfile, playlist)
     end
     redirect_to vj_path
   end
@@ -19,7 +23,7 @@ class WelcomeController < ApplicationController
 
   private
 
-  def songs_from_xml(file)
+  def songs_from_xml(file, playlist)
     doc = File.open(file) { |f| Nokogiri::XML(f) }
 
     songs = doc.xpath('//dict/dict/dict').count
@@ -31,17 +35,10 @@ class WelcomeController < ApplicationController
       bit_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[8]").text
       sample_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[9]").text
       normalization = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[13]").text
-      Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
+      playlist.songs << Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
       counter +=1
     end
 
-    # name = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[1]').text
-    # artist = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[2]').text
-    # genre = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::string[4]').text
-    # bit_rate = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[8]').text
-    # sample_rate = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[9]').text
-    # normalization = doc.xpath('//dict/dict/dict[1]/key[2]/following-sibling::integer[13]').text
-    # Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
   end
 
 
