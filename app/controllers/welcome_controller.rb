@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
 
   def create_playlist
     params[:playlist][:xml_file].drop(1).each do |file| #not sure why first elem of array result is empty (hence the drop 1)
-      playlist = Playlist.create(name: file.original_filename.split(".").first)
+      playlist = Playlist.create(name: file.original_filename.split(".").first.downcase)
       songs_from_xml(file.tempfile, playlist)
     end
     redirect_to vj_path
@@ -29,9 +29,9 @@ class WelcomeController < ApplicationController
     songs = doc.xpath('//dict/dict/dict').count
     counter = 1
     while counter <= songs
-      name = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[1]").text
-      artist = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[2]").text
-      genre = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[4]").text
+      name = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[1]").text.downcase
+      artist = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[2]").text.downcase
+      genre = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::string[4]").text.downcase
       bit_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[8]").text
       sample_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[9]").text
       normalization = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[13]").text

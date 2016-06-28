@@ -10,7 +10,7 @@ module ActionsHelper
         url +=  "&attribute=songTerm"
       when "genre"
         url +=  "&attribute=genreIndex"
-      else 
+      else
         url += "&attribute=artistTerm"
       end
     end
@@ -21,6 +21,7 @@ module ActionsHelper
   end
 
   def search_from_db
-
+    params[:specifier] = "name" if params[:specifier] == "song"
+    Song.where("#{params[:specifier]}": "#{params[:search].downcase}")
   end
 end

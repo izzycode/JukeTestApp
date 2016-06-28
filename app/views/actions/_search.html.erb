@@ -1,5 +1,4 @@
 <ul>
-
   <% @search_from_itunes[:results].each do |result| %>
     <li>
       <h6><%= result[:trackCensoredName] %></h6>
@@ -12,6 +11,19 @@
     </li>
 
   <% end %>
-
 </ul>
-<h1 style="color:red;"><%= @is_artist %></h1>
+
+<ul>
+  <% @search_from_db.each do |search| %>
+    <li>
+      <h6><%= search.name %></h6>
+
+      <% if !@is_artist %>
+        <h6><%= search.artist %></h6>
+      <% end %>
+
+      <!-- <img src='<%#= result[:artworkUrl100] %>' > --> <!-- Grab generic image for artist? -->
+    </li>
+
+  <% end %>
+</ul>
