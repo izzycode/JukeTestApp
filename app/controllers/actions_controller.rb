@@ -1,7 +1,6 @@
 class ActionsController < ApplicationController
 
   def search
-
     @search_from_itunes = search_from_itunes
     @is_artist = params[:specifier] == "artist" ? true : false
     @search_from_db = search_from_db
@@ -10,7 +9,6 @@ class ActionsController < ApplicationController
       format.html { redirect_to root_path }
       format.js { }
     end
-
   end
 
   def playlist

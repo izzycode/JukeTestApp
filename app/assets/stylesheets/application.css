@@ -81,3 +81,7 @@ ter/*
   main {
     flex: 1 0 auto;
   }
+
+  .parallax img {
+    display: inherit !important;
+  }

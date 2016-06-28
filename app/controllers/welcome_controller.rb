@@ -1,7 +1,5 @@
 class WelcomeController < ApplicationController
   def izzy_bam
-    p "ROOT!  "*19
-
     @playlists = Playlist.all
     @icons = ["flash_on","face","favorite","album","play_circle_outline","speaker","headset","whatshot","star"]
   end
@@ -38,7 +36,6 @@ class WelcomeController < ApplicationController
       playlist.songs << Song.create(name:name,artist:artist,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
       counter +=1
     end
-
   end
 
 
