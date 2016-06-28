@@ -4,6 +4,10 @@
     <li>
       <h6><%= result[:trackCensoredName] %></h6>
 
+      <% if !@is_artist %>
+        <h6><%= result[:artistName] %></h6>
+      <% end %>
+
       <img src='<%= result[:artworkUrl100] %>' >
     </li>
 
