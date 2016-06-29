@@ -25,7 +25,10 @@
 })(jQuery); // end of jQuery name space
 
 // Modal trigger
-$(document).on('ready turbolinks:render',function(){
+$(document).on('ready turbolinks:load',function(){
    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
    $('.modal-trigger').leanModal();
+   $('.parallax').parallax();
+   $('.button-collapse').sideNav();
+
  });

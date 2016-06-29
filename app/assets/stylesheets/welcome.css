@@ -4,11 +4,11 @@
 */
 
 .infinite-scroll {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .infinite-scroll ul{
-  display: -webkit-box;
+
 }
 
 .infinite-scroll ul li {
@@ -23,7 +23,6 @@
   -webkit-text-stroke: 1px black;
   margin:5% 10%;
   bottom:0;
-
 }
 
 .infinite-scroll ul li img{
@@ -32,5 +31,14 @@
 }
 
 .search-field{
+  text-align: center;
+  color:red;
+}
+
+.icon-block{
+  min-width: 250px;
+}
+
+input{
   text-align: center;
 }
