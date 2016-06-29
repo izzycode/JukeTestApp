@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(version: 20160625035912) do
   create_table "songs", force: :cascade do |t|
     t.string   "name"
     t.string   "artist"
+    t.string   "image_url"
     t.string   "genre"
     t.string   "bit_rate"
     t.string   "sample_rate"
     t.string   "normalization"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "playlist_id"
   end
 
 end

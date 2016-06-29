@@ -17,7 +17,7 @@
   <% @search_from_db.each do |search| %>
     <li>
       <h6><%= search.name %></h6>
-
+      <img src='<%= search.image_url == "#" ? "http://loremflickr.com/320/240/music?random=4" : search.image_url %>' >
       <% if !@is_artist %>
         <h6><%= search.artist %></h6>
       <% end %>

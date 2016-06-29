@@ -25,11 +25,9 @@
     <!-- Modal Structure -->
     <div id="modal<%= playlist.id %>" class="modal bottom-sheet">
       <div class="modal-content">
-        <h4><%= playlist.name.capitalize %></h4>
-        <table class="highlight centered responsive-table">
+        <table class="highlight top-table centered">
           <thead>
             <tr>
-                <th colspan="1"></th>
                 <th data-field="name">Name</th>
                 <th data-field="artist">Artist</th>
                 <th data-field="genre">Genre</th>
@@ -38,10 +36,9 @@
                 <th data-field="normalization">Normalization</th>
             </tr>
           </thead>
-          <% playlist.songs.each_with_index do |song,i| %>
+          <% playlist.songs.each do |song| %>
             <tbody>
               <tr>
-                <td><%= i+1 %></td>
                 <td><%= song.name %></td>
                 <td><%= song.artist %></td>
                 <td><%= song.genre %></td>
