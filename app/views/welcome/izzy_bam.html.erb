@@ -8,6 +8,26 @@
 
       <ul id="nav-mobile" class="side-nav">
         <li style="color:black;"><%= link_to "David's Spot", vj_path %></li>
+
+        <li> <!-- Auth0 -->
+          <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+          <script type="text/javascript">
+
+            var lock = new Auth0Lock('gjggPWwo53rnudhtxhvBaszmeNJKUZDi', 'izzy-code.auth0.com');
+
+            function signin() {
+              lock.show({
+                  callbackURL: '/auth/auth0/callback'
+                , responseType: 'code'
+                , authParams: {
+                  scope: 'openid email public_content likes'  // Learn about scopes: https://auth0.com/docs/scopes
+                }
+              });
+            }
+          </script>
+          <button onclick="window.signin();" class="btn" style="color:black;">Login</button>
+          <!-- Auth0 -->
+        </li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
