@@ -3,21 +3,17 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
-        <li><%= link_to "David's Spot", vj_path, class:"pageload-link", data: {transition:"flip"} %></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li style="color:black;"><%= link_to "David's Spot", vj_path %></li>
-
+        <li><%= link_to "David's Spot", vj_path, class:"pageload-link" %></li>
         <li> <!-- Auth0 -->
           <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
           <script type="text/javascript">
 
             var lock = new Auth0Lock('gjggPWwo53rnudhtxhvBaszmeNJKUZDi', 'izzy-code.auth0.com');
+            // https://www.instagram.com/oauth/authorize/?client_id=e41d4c22bff343c2a02ead5a3dd6b3f4&redirect_uri=http://localhost:3000/auth/auth0/callback&response_type=code
 
             function signin() {
               lock.show({
-                  callbackURL: '/auth/auth0/callback'
+                  callbackURL: '<%=ENV['URL']%>auth/auth0/callback'
                 , responseType: 'code'
                 , authParams: {
                   scope: 'openid email public_content likes'  // Learn about scopes: https://auth0.com/docs/scopes
@@ -25,9 +21,13 @@
               });
             }
           </script>
-          <button onclick="window.signin();" class="btn" style="color:black;">Login</button>
+          <button class="btn" onclick="window.signin();">Login</button>
           <!-- Auth0 -->
         </li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><%= link_to "David's Spot", vj_path %></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
