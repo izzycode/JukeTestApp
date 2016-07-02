@@ -1,3 +1,31 @@
+<!-- Facebook SDK -->
+<!-- <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1589153954711252',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div> -->
+<!-- Facebook SDK -->
+
+
 <div data-role="page" id="pageone">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -9,14 +37,13 @@
           <script type="text/javascript">
 
             var lock = new Auth0Lock('gjggPWwo53rnudhtxhvBaszmeNJKUZDi', 'izzy-code.auth0.com');
-            // https://www.instagram.com/oauth/authorize/?client_id=e41d4c22bff343c2a02ead5a3dd6b3f4&redirect_uri=http://localhost:3000/auth/auth0/callback&response_type=code
-
+        
             function signin() {
               lock.show({
                   callbackURL: '<%=ENV['URL']%>auth/auth0/callback'
                 , responseType: 'code'
                 , authParams: {
-                  scope: 'openid email public_content likes'  // Learn about scopes: https://auth0.com/docs/scopes
+                  scope: 'openid public_content likes follower_list'  // Learn about scopes: https://auth0.com/docs/scopes
                 }
               });
             }
@@ -28,6 +55,14 @@
 
       <ul id="nav-mobile" class="side-nav">
         <li><%= link_to "David's Spot", vj_path %></li>
+        <% if !session[:userinfo].nil? %>
+          <li style="color:black;"><%= session[:userinfo]["extra"]["raw_info"]["identities"][0]["access_token"] %></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        <% end %>
+
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -51,37 +86,25 @@
     <div class="parallax"><%=image_tag("background1.jpg", alt:"background image")%></div>
   </div>
 
-
-  <!-- <div class="container"> -->
-    <!-- <div class="section"> -->
-
-      <!--   Icon Section   -->
-      <div clas="col lg10 infinite-scroll" style="display:flex;">
-        <% @playlists.each do |playlist| %>
-          <!-- <div class="col s12 m6 lg6">           -->
-          <!-- <div class=""> -->
-
-            <div class="icon-block">
-              <h1 class="center brown-text"><i class="material-icons"><%= @icons.shuffle.sample %></i></h1>
-              <h5 class="center"><%= playlist.name %></h5>
-
-              <p class="light">
-                <ol>
-                  <% playlist.songs.each do |song| %>
-                    <li>
-                      <%= song.name %>
-                    </li>
-                  <% end %>
-                </ol>
-              </p>
-            </div>
-          <!-- </div> -->
-        <% end %>
-      </div>
-
-    <!-- </div> -->
-  <!-- </div> -->
-
+  <!--   Icon Section   -->
+  <div class="row">
+    <% @playlists.each do |playlist| %>
+        <div class="col s12 m6 l6 icon-block">
+          <h1 class="center brown-text"><i class="material-icons"><%= @icons.shuffle.sample %></i></h1>
+          <h5 class="center"><%= playlist.name %></h5>
+          <p class="light">
+            <ol>
+              <% playlist.songs.each do |song| %>
+                <li>
+                  <%= song.name %>
+                </li>
+              <% end %>
+            </ol>
+          </p>
+        </div>
+      <!-- </div> -->
+    <% end %>
+  </div>
 
   <div class="parallax-container valign-wrapper">
     <!-- <div class="section no-pad-bot"> -->
