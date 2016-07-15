@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :search_suggestions
   get 'playlist/create'
 
   get 'playlist/destroy'

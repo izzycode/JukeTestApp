@@ -95,7 +95,18 @@
             <%= label_tag(:specifier_genre, "Genre") %>
           </p>
 
-          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...', class:"search-field" %>
+          <script>
+            $(function(){
+              var arr = <%= raw @autofill %>;
+              $("#search").autocomplete({
+                source: arr
+              });
+            })
+          </script>
+
+          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...', class:"search-field", id:"search"%>
+
+
 
           <div>
             <%= submit_tag 'Search', class:"btn waves-effect waves-light" %>

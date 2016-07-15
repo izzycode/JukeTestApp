@@ -25,6 +25,8 @@ gem 'hirb'
 gem 'nokogiri'
 gem 'httparty'
 gem 'json'
+gem 'jquery-ui-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
