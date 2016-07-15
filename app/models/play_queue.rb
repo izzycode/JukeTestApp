@@ -1,0 +1,2 @@
+class PlayQueue < ApplicationRecord
+end

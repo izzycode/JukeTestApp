@@ -42,6 +42,7 @@ class WelcomeController < ApplicationController
       bit_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[8]").text
       sample_rate = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[9]").text
       normalization = doc.xpath("//dict/dict/dict[#{counter}]/key[2]/following-sibling::integer[13]").text
+
       playlist.songs << Song.create(name:name,artist:artist,image_url:image_url,genre:genre,bit_rate:bit_rate,sample_rate:sample_rate,normalization:normalization)
       counter +=1
     end
