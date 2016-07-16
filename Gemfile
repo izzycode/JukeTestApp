@@ -26,6 +26,8 @@ gem 'nokogiri'
 gem 'httparty'
 gem 'json'
 gem 'jquery-ui-rails'
+gem 'gon'
+
 
 
 # Auth0

@@ -37,7 +37,7 @@
           <script type="text/javascript">
 
             var lock = new Auth0Lock('gjggPWwo53rnudhtxhvBaszmeNJKUZDi', 'izzy-code.auth0.com');
-        
+
             function signin() {
               lock.show({
                   callbackURL: '<%=ENV['URL']%>auth/auth0/callback'
@@ -138,18 +138,10 @@
             <%= label_tag(:specifier_genre, "Genre") %>
           </p>
 
-          <script>
-            $(function(){
-              var arr = <%= raw @autofill %>;
-              $("#search").autocomplete({
-                source: arr
-              });
-            })
-          </script>
+          <!-- Script for autocomplete goes here via AJAX after page load -->
+          <div id="script-placeholder"></div>
 
           <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...', class:"search-field", id:"search"%>
-
-
 
           <div>
             <%= submit_tag 'Search', class:"btn waves-effect waves-light" %>
@@ -162,7 +154,6 @@
     </div>
   </div>
 </div>
-
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">

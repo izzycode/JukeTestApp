@@ -2,12 +2,6 @@ class WelcomeController < ApplicationController
   def izzy_bam
     @playlists = Playlist.all
     @icons = ["flash_on","face","favorite","album","play_circle_outline","speaker","headset","whatshot","star"]
-    all_song_names = Song.pluck(:name).uniq.map{|x| x.titleize}
-    all_artist_names = Song.pluck(:artist).uniq.map{|x| x.titleize}
-    ##### Gotta move this elsewhere->
-    @autofill = all_artist_names.each_with_index do |x,i|
-                  x << ": #{all_song_names[i]}"
-                end
   end
 
 
