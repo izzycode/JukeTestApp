@@ -86,17 +86,43 @@
     <div class="parallax"><%=image_tag("background1.jpg", alt:"background image")%></div>
   </div>
 
+  <style>
+    /*.playlist-box{
+      display: -webkit-inline-box;
+      max-width: 100vw;
+      max-height: 35vh;
+      overflow-x: scroll;
+    }
+    .icon-block{
+      width: 50vw;
+      font-size: 1.5em;
+      padding: 10px;
+    }
+    .playlist-box ol{
+      margin: 1em;
+    }
+    /* Portrait and Landscape */
+    @media only screen
+      and (min-device-width: 375px)
+      and (max-device-width: 667px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        .icon-block{
+          width: 100%;
+        }
+    }*/
+  </style>
+
   <!--   Icon Section   -->
-  <div class="row">
+  <div class="row playlist-box">
     <% @playlists.each do |playlist| %>
-        <div class="col s12 m6 l6 icon-block">
+        <div class="icon-block">
           <h1 class="center brown-text"><i class="material-icons"><%= @icons.shuffle.sample %></i></h1>
           <h5 class="center"><%= playlist.name %></h5>
           <p class="light">
             <ol>
               <% playlist.songs.each do |song| %>
                 <li>
-                  <%= song.name %>
+                  <%= song.artist.titleize %>: <%= song.name.titleize %>
                 </li>
               <% end %>
             </ol>

@@ -23,75 +23,100 @@ ter/*
   *
   * Made By MaterializeCSS.com
   */
- nav ul a,
- nav .brand-logo {
-   color: #444;
+nav ul a,
+nav .brand-logo {
+ color: #444;
+}
+
+p {
+ line-height: 2rem;
+}
+
+.button-collapse {
+ color: #26a69a;
+}
+
+.parallax-container {
+ min-height: 380px;
+ line-height: 0;
+ height: auto;
+ color: rgba(255,255,255,.9);
+}
+ .parallax-container .section {
+   width: 100%;
  }
 
- p {
-   line-height: 2rem;
+@media only screen and (max-width : 992px) {
+ .parallax-container .section {
+   position: absolute;
+   top: 40%;
  }
-
- .button-collapse {
-   color: #26a69a;
+ #index-banner .section {
+   top: 10%;
  }
+}
 
- .parallax-container {
-   min-height: 380px;
-   line-height: 0;
-   height: auto;
-   color: rgba(255,255,255,.9);
+@media only screen and (max-width : 600px) {
+ #index-banner .section {
+   top: 0;
  }
-   .parallax-container .section {
-     width: 100%;
-   }
+}
 
- @media only screen and (max-width : 992px) {
-   .parallax-container .section {
-     position: absolute;
-     top: 40%;
-   }
-   #index-banner .section {
-     top: 10%;
-   }
- }
+.icon-block {
+ padding: 0 15px;
+}
+.icon-block .material-icons {
+ font-size: inherit;
+}
 
- @media only screen and (max-width : 600px) {
-   #index-banner .section {
-     top: 0;
-   }
- }
+footer.page-footer {
+ margin: 0;
+}
 
- .icon-block {
-   padding: 0 15px;
- }
- .icon-block .material-icons {
-   font-size: inherit;
- }
+/*Sticky footer*/
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
- footer.page-footer {
-   margin: 0;
- }
+.parallax img {
+  display: inherit !important;
+}
 
- /*Sticky footer*/
- body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+/*Styling for autocomplete dropdown*/
+.ui-menu{
+    width: 20%;
+    background-color: white;
+    z-index: 10;
+    border: 1px solid #444;
+    box-shadow: 0 5px 5px  #d9d9d9;
+}
+.ui-menu .ui-menu-item:hover{
+  background-color: #d9d9d9;
+}
 
-  .parallax img {
-    display: inherit !important;
-  }
-
-  /*Styling for autocomplete dropdown*/
-  .ui-menu{
-      width: 20%;
-      background-color: white;
-      z-index: 10;
-      border: 1px solid #444;
-      box-shadow: 0 5px 5px  #d9d9d9;
-  }
-  .ui-menu .ui-menu-item:hover{
-    background-color: #d9d9d9;
-  }
+/**/
+.playlist-box{
+  display: -webkit-inline-box;
+  max-width: 100vw;
+  max-height: 35vh;
+  overflow-x: scroll;
+}
+.icon-block{
+  width: 50vw;
+  font-size: 1.5em;
+  padding: 10px;
+}
+.playlist-box ol{
+  margin: 2em;
+}
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .icon-block{
+      width: 100%;
+    }
+}
