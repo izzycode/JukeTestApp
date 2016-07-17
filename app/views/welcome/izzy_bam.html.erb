@@ -145,7 +145,7 @@
   <div class="parallax"><%=image_tag("background2.jpg", alt:"background image")%></div>
 </div>
 
-<div class="container">
+<div class="container search-area">
   <div class="section">
 
     <div class="row">
@@ -155,19 +155,23 @@
 
         <%= form_tag '/search' , remote:true, class:"search-form" do %>
 
-          <p>
+          <!-- <p>
             <%= radio_button_tag(:specifier, "artist","artist") %>
             <%= label_tag(:specifier_artist, "Artist") %>
             <%= radio_button_tag(:specifier, "song") %>
             <%= label_tag(:specifier_song, "Song") %>
             <%= radio_button_tag(:specifier, "genre") %>
             <%= label_tag(:specifier_genre, "Genre") %>
-          </p>
+          </p> -->
 
           <!-- Script for autocomplete goes here via AJAX after page load -->
           <div id="script-placeholder"></div>
-
-          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name, Genre...', class:"search-field", id:"search"%>
+          <style>
+            #search{
+              text-align: center;
+            }
+          </style>
+          <%= text_field_tag 'search', nil, placeholder:'Artist,Song Name...', class:"search-field", id:"search"%>
 
           <div>
             <%= submit_tag 'Search', class:"btn waves-effect waves-light" %>
