@@ -1,2 +1,0 @@
-class PlayQueue < ApplicationRecord
-end
