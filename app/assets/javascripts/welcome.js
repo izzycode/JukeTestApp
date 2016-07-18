@@ -1,6 +1,5 @@
 
 $(function(){
-console.log("first level");
 $.ajax({
       url: "/autofill",
       // dataType: "html",
@@ -9,7 +8,6 @@ $.ajax({
                   // $('#search').autocomplete({source: arr});
                 },
       error: function() {// When Service call fails
-              console.log();
               $('#search').autocomplete({source: arr});
               }
   });
