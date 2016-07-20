@@ -2,7 +2,7 @@
 <!-- <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1589153954711252',
+      appId      : ENV['FB_APP_ID'],
       xfbml      : true,
       version    : 'v2.6'
     });
@@ -36,7 +36,7 @@
           <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
           <script type="text/javascript">
 
-            var lock = new Auth0Lock('gjggPWwo53rnudhtxhvBaszmeNJKUZDi', 'izzy-code.auth0.com');
+            var lock = new Auth0Lock('<%= ENV['DJUKE_APP_ID'] %>', 'izzy-code.auth0.com');
 
             function signin() {
               lock.show({
