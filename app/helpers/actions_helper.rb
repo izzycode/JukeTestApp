@@ -1,7 +1,7 @@
 module ActionsHelper
 
   def search_from_itunes
-    search_term = params[:search].strip().gsub(" ","+")
+    search_term = params[:search].strip.gsub(" ","+")
     url = "https://itunes.apple.com/search?term=#{search_term}&entity=musicVideo"
 
     if !params[:specifier].nil?
